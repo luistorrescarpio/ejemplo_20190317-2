@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="lt_script/formData_post.js"></script>
+</head>
+<body>
+	
+	<input type="file" multiple id="file_content">
+
+	<br>
+	<button onclick="subirArchivo()">Enviar</button>
+	<script>
+		function subirArchivo(){
+
+			formData_post("consulta.php",{
+				action: "recibirArchivos"
+				,"upload": "file_content"
+				,param1: "param1"
+				,param2: "param2"
+			},function(res){
+				console.log(res);
+			},"json");
+		}
+	</script>
+</body>
+</html>
